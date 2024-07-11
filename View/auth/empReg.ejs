@@ -1,0 +1,76 @@
+<%-include('../includes/header.ejs')%>
+  <link rel="stylesheet" href="/css/empRegistration.css">
+  <title>
+    <%=title%>
+  </title>
+  </head>
+
+  <body>
+    <%-include('../includes/navbar.ejs')%>
+      <main>
+        <div class="container mb-5">
+          <div class="reg">
+            <h1 id="title" class="text-center">Allen Digital Technical Solutions</h1>
+            <p id="description" class="description text-center">Employee Registration Form</p>
+          </div>
+          <form action="/empreg/postdata" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" class="form-control" placeholder="e.g. abc@gmail.com">
+            </div>
+            <div>
+              <%if(errorEmail){%>
+                <p class="text-danger">!<%=errorEmail%></p>
+              <%}%>
+            </div>
+            <div class="form-group">
+              <label for="number">Contact Number</label>
+              <input type="number" name="phn" id="phn" class="form-control" placeholder="Enter your Mobile No.">
+            </div>
+            <div class="form-group">
+              <p>Address</p>
+              <textarea class="input-textarea" name="address" id="address" placeholder="Enter your Address here..."></textarea>
+            </div>
+            <div class="form-group">
+              <p>State</p>
+              <select id="dropdown" name="state" class="form-control">
+                <option disabled selected value>Select your state</option>
+                <option value="andhra pradesh">Andhra Pradesh</option>
+                <option value="assam">Assam</option>
+                <option value="chattisgarh">Chattisgarh</option>
+                <option value="delhi">Delhi</option>
+                <option value="gujarat">Gujarat</option>
+                <option value="madhya pradesh">Madhya Pradesh</option>
+                <option value="rajasthan">Rajasthan</option>
+                <option value="uttar pradesh">Uttar Pradesh</option>
+                <option value="west bengal">West Bengal</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="zip">Zip Code</label>
+              <input type="number" name="zip" id="zip" class="form-control" placeholder="Enter your Zip Code">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password here">
+            </div>
+            <div class="form-group">
+              <label for="doj">Date of Joining</label>
+              <input type="date" name="doj" id="doj" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="zip">Upload Images <span class="text-danger ps-2">*(Three images only)</span></label>
+              <input type="file" name="emp_img" id="emp_img" class="form-control" multiple>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Submit" class="submit-button">
+            </div>
+          </form>
+        </div>
+
+      </main>
+      <%-include('../includes/footer.ejs')%>

@@ -1,0 +1,63 @@
+<%-include('../includes/header.ejs')%>
+  <link rel="stylesheet" href="/css/empRegistration.css">
+  <title>
+    <%=title%>
+  </title>
+  </head>
+
+  <body>
+    <%-include('../includes/navbar.ejs')%>
+      <main>
+        <div class="container mb-5">
+          <div class="reg">
+            <h1 id="title" class="text-center">Allen Digital Technical Solutions</h1>
+            <p id="description" class="description text-center">Employee Registration Form</p>
+          </div>
+          <form action="/empedit/postdata" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <input type="hidden" name="uid" id="uid" value="<%=data._id%>">
+            <div class="form-group">
+              <label for="up_name">Full Name</label>
+              <input type="text" name="up_name" id="up_name" value="<%=data.full_name%>" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="up_email">Email</label>
+              <input type="email" name="up_email" id="up_email" value="<%=data.email%>" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="up_phn">Contact Number</label>
+              <input type="number" name="up_phn" id="up_phn" value="<%=data.contact%>" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="up_address">Address</label>
+              <input type="text" name="up_address" id="up_address" value="<%=data.address%>" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="up_state">State</label>
+              <input type="text" name="up_state" id="up_state" value="<%=data.state%>" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="up_zip">Zip Code</label>
+              <input type="number" name="up_zip" id="up_zip" value="<%=data.zip%>" class="form-control" placeholder="Enter your Zip Code">
+            </div>
+            <div class="form-group">
+              <label for="up_password">Password</label>
+              <input type="password" name="up_password" id="up_password" value="<%=data.password%>" class="form-control" placeholder="Enter your Password here" readonly>
+            </div>
+            <div class="form-group">
+              <label for="up_doj">Date of Joining</label>
+              <input type="text" name="up_doj" id="up_doj" value="<%=data.date_of_joining%>" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+              <label for="emp_img">Upload Images <span class="text-danger ps-2">*(Three images only)</span></label>
+              <img src="/auth/<%=data.employee_images[0]%>" alt="..." height="60px">
+              <img src="/auth/<%=data.employee_images[1]%>" alt="..." height="60px">
+              <img src="/auth/<%=data.employee_images[2]%>" alt="..." height="60px"><br><br>
+              <input type="file" name="emp_img" id="emp_img" class="form-control" multiple>
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Update" class="submit-button">
+            </div>
+          </form>
+        </div>
+      </main>
+      <%-include('../includes/footer.ejs')%>
